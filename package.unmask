@@ -1,0 +1,6 @@
+x11-base/xorg-drivers
+x11-base/xorg-server
+gui-wm/sway
+net-misc/xmrig
+gui-apps/foot
+gui-apps/waybar

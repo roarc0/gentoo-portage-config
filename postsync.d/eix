@@ -1,0 +1,18 @@
+#!/bin/sh
+CURRENT="/var/cache/eix/portage.eix"
+PREVIOUS="/var/cache/eix/previous.eix"
+
+source /lib/gentoo/functions.sh
+
+if [[ -e $CURRENT ]]; then
+    ebegin "eix-backup"
+    cp -a $CURRENT $PREVIOUS
+fi
+
+ebegin "eix-update"
+eix-update
+
+if [[ -e $PREVIOUS ]]; then
+    ebegin "eix-diff"
+    eix-diff $PREVIOUS $CURRENT
+fi

@@ -1,0 +1,3 @@
+CFLAGS="-Ofast -march=native -mtune=native -pipe ${LTO} ${GRAPHITE}"
+CXXFLAGS="${CFLAGS}"
+LDFLAGS="-Wl,--hash-style=gnu,--as-needed,-O1"

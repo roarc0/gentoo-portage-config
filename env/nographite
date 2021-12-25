@@ -1,0 +1,2 @@
+CFLAGS="-march=native -02 -fuse-linker-plugin -pipe ${LTO}"
+CXXFLAGS="${CFLAGS}"
