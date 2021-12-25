@@ -2,7 +2,6 @@ sys-libs/glibc basecflags
 sys-devel/gcc ondisk
 www-client/firefox ondisk
 www-client/chromium ondisk
-dev-lang/ghc ondisk
 dev-lang/rust ondisk
 www-client/firefox ondisk
 dev-lang/spidermonkey ondisk
@@ -15,5 +14,3 @@ dev-lang/spidermonkey ondisk
 #sys-libs/compiler-rt-sanitizers clang
 #sys-libs/libomp clang
 #sys-devel/clang-runtime clang
-
-dev-libs/libfmt clang
