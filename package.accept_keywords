@@ -11,6 +11,5 @@ www-plugins/chrome-binary-plugins ~amd64
 net-p2p/transmission **
 sys-fs/fuse:3 **
 net-misc/xmrig **
-*/*::wayland-desktop **
-=gui-apps/foot-9999::local
+*/*::local **
 gui-apps/waybar **
