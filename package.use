@@ -6,7 +6,7 @@
 */* llvm_targets_AMDGPU
 */* dri3 xwayland wayland wayland-compositor glamor
 */* nfs nfsv41 conntrack nftables netlink iproute2 ssh git
-*/* meson dbus systemd pulseaudio bluetooth firmware symlink libinput ibus nautilus gvfs gtk3 vim system-* chromium system-llvm rustfm cargo
+*/* meson dbus systemd pulseaudio bluetooth firmware symlink libinput ibus nautilus gvfs gtk3 vim system-* chromium system-llvm rustfm cargo vulkan
 */* iwd wifi http2 opencl echo-cancel
 
 */* -gles1 -gles -classic -gtk-doc -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -upnp -dvdnav -accessibility -guile -aalib -a52 -v4l -v4l2 -deprecated -bindist -consolekit -r300 -nokia -wicd -static-analyzer -gnome2 -gtk2 -laptop -mono -msn -icq -isdn -macosx -ipod -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -extras -doc -examples -real -32bit -zeroconf -geolocation -accessibility -aim -cdparanoia -cdinstall  -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -ios -ipod -evo -google -spice -printsupport -libnotify -awt -smartcard -http -ldap -perl -sndfile
@@ -86,8 +86,8 @@ net-libs/webkit-gtk -gles2 egl
 x11-libs/wxGTK -gnome
 
 #kill-gtk2
-app-crypt/pinentry -gtk qt5
-app-text/poppler qt5
+app-crypt/pinentry -gtk -qt5
+app-text/poppler -qt5
 app-text/ghostscript-gpl -gtk
 media-gfx/graphviz -gtk
 net-dialup/ppp -gtk
@@ -125,6 +125,7 @@ media-libs/libsdl2 gles2
 media-video/wireplumber lua_single_target_lua5-4
 
 gui-apps/waybar network
+app-misc/vifm -gtk
 
 # required by dev-lang/zig-0.9.0::local
 # required by zig (argument)

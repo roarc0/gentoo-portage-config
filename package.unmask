@@ -4,3 +4,4 @@ gui-wm/sway
 net-misc/xmrig
 gui-apps/foot
 gui-apps/waybar
+~virtual/libcrypt-2
