@@ -73,17 +73,18 @@ media-libs/libvpx postproc
 
 #desktop
 gui-wm/sway swaybar swaybg swaymsg systemd swaygrab swaylock tray
+x11-wm/mutter screencast
 gnome-base/gnome -extras -classic
 gnome-base/gnome-shell networkmanager
-gnome-base/gvfs http -mtp
-gnome-extra/evolution-data-server -gnome-online-accounts -google-auth -weather -gtk
+gnome-base/gvfs http -mtp -gnome-online-accounts
+gnome-extra/evolution-data-server -gnome-online-accounts -oauth -google-auth -weather -gtk
+gnome-base/gnome-control-center -gnome-online-accounts
 app-misc/tracker iso mp3 -pdf -vorbis miner-fs -upower nautilus xmp networkmanager
 app-misc/tracker-miners cue iso mp3 pdf -vorbis miner-fs -upower nautilus xmp networkmanager
 gnome-extra/gnome-boxes -smartcard
 dev-util/meld -gnome
 gnome-base/nautilus -previewer
 net-libs/webkit-gtk -gles2 egl
-x11-libs/wxGTK -gnome
 
 #kill-gtk2
 app-crypt/pinentry -gtk -qt5
@@ -120,13 +121,9 @@ dev-db/sqlite secure-delete
 net-libs/nodejs inspector
 net-libs/libsoup vala
 media-libs/libsdl2 gles2
->=dev-libs/libpcre2-10.36 pcre32
->=media-libs/freetype-2.10.4 harfbuzz
+dev-libs/libpcre2 pcre32
+media-libs/freetype harfbuzz
 media-video/wireplumber lua_single_target_lua5-4
-
 gui-apps/waybar network
 app-misc/vifm -gtk
-
-# required by dev-lang/zig-0.9.0::local
-# required by zig (argument)
->=sys-devel/llvm-13.0.0 llvm_targets_AArch64 llvm_targets_PowerPC llvm_targets_XCore llvm_targets_Mips llvm_targets_Sparc llvm_targets_ARM llvm_targets_AVR llvm_targets_Hexagon llvm_targets_BPF llvm_targets_Lanai llvm_targets_WebAssembly llvm_targets_RISCV llvm_targets_MSP430 llvm_targets_SystemZ llvm_targets_NVPTX
+net-misc/freerdp server
