@@ -2,14 +2,14 @@
 */* mpeg mp4 vpx x264 x265 10bit matroska win32codecs lame mp3 flac opus vorbis openh264 orc
 */* webp gif svg png pdf archive rar 7z unrar lz4 xz emoji
 */* device-mapper cryptsetup gpt fat ntfs parted
-*/* aio pgo pie ssp lto clang experimental custom-cflags
+*/* aio pgo pie ssp lto experimental custom-cflags
 */* llvm_targets_AMDGPU
 */* dri3 xwayland wayland wayland-compositor glamor
 */* nfs nfsv41 conntrack nftables netlink iproute2 ssh git
 */* meson dbus systemd bluetooth firmware symlink libinput ibus nautilus gvfs gtk3 vim system-* chromium system-llvm rustfm cargo vulkan
 */* iwd wifi http2 opencl echo-cancel minimal
 
-*/* -gles1 -gles -classic -gtk-doc -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -upnp -dvdnav -accessibility -guile -aalib -a52 -v4l -v4l2 -deprecated -bindist -consolekit -r300 -nokia -wicd -static-analyzer -gnome2 -gtk2 -laptop -mono -msn -icq -isdn -macosx -ipod -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -extras -doc -examples -real -32bit -zeroconf -geolocation -accessibility -aim -cdparanoia -cdinstall  -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -ios -ipod -evo -google -spice -printsupport -libnotify -awt -smartcard -http -ldap -perl -sndfile
+*/* -gles1 -gles -classic -cuda -gtk-doc -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -upnp -dvdnav -accessibility -guile -aalib -a52 -v4l -v4l2 -deprecated -bindist -consolekit -r300 -nokia -wicd -static-analyzer -gnome2 -gtk2 -laptop -mono -msn -icq -isdn -macosx -ipod -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -extras -doc -examples -real -32bit -zeroconf -geolocation -accessibility -aim -cdparanoia -cdinstall  -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -ios -ipod -evo -google -spice -printsupport -libnotify -awt -smartcard -http -ldap -perl -sndfile
 */* -jdk -java -midi -alsa -alsa-plugin -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -thin
 */* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -cups -samba
 
@@ -60,10 +60,11 @@ sys-apps/bubblewrap -suid
 #media
 www-client/chromium proprietary-codecs widevine -system-ffmpeg -system-icu jumbo-build -suid ozone
 www-client/firefox hwaccel custom-optimization
-media-sound/pulseaudio alsa alsa-plugin equalizer native-headset system-wide
-media-sound/pulseaudio-daemon alsa alsa-plugin native-headset
+media-video/pipewire sound-server
+media-sound/pulseaudio -daemon equalizer native-headset
+media-sound/pulseaudio-daemon native-headset
 media-video/ffmpeg -samba
-media-video/vlc a52 matroska ffmpeg pulseaudio libass -sftp -samba taglib dts oggvorbis xv svga stream flac mp3 ogg theora twolame vpx x264 x265 qt5 postproc wma-fixed vlm ccda -live musepack schroedinger fontconfig -dvd -gnome microdns -lua -lua_single_target_lua5-* -ncurses
+media-video/vlc a52 matroska ffmpeg libass -sftp -samba taglib dts oggvorbis xv svga stream flac mp3 ogg theora twolame vpx x264 x265 qt5 postproc wma-fixed vlm ccda -live musepack schroedinger fontconfig -dvd -gnome microdns -lua -lua_single_target_lua5-* -ncurses
 media-libs/gst-plugins-bad -gles2 egl
 media-gfx/inkscape -gnome -spell -latex
 media-gfx/gimp -webkit
@@ -93,7 +94,7 @@ app-text/poppler -qt5
 app-text/ghostscript-gpl -gtk
 media-gfx/graphviz -gtk
 net-dialup/ppp -gtk
-media-libs/libcanberra -gtk -sound alsa
+media-libs/libcanberra -gtk -sound -udev
 dev-util/perf -gtk
 app-accessibility/caribou -gtk2
 
