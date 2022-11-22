@@ -4,6 +4,7 @@ app-crypt/seahorse
 app-editors/gnome-text-editor
 app-editors/neovim
 app-eselect/eselect-repository
+app-misc/fdupes
 app-misc/tmux
 app-portage/eix
 app-portage/gentoolkit
