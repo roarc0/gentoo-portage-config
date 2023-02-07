@@ -3,6 +3,7 @@ app-arch/file-roller
 app-crypt/seahorse
 app-editors/gnome-text-editor
 app-editors/neovim
+app-editors/vscode
 app-eselect/eselect-repository
 app-misc/fdupes
 app-misc/tmux
@@ -41,3 +42,4 @@ sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
 sys-process/htop
 www-client/google-chrome-beta
+x11-apps/xwininfo

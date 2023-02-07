@@ -1,5 +1,5 @@
 */* ${CPU_FLAGS_X86}
-*/* mpeg mp4 vpx x264 x265 10bit matroska win32codecs lame mp3 flac opus vorbis openh264 orc
+*/* mpeg mp4 vpx x264 x265 10bit matroska win32codecs lame mp3 flac opus vorbis openh264 orc pipewire
 */* webp gif svg png pdf archive rar 7z unrar lz4 xz emoji
 */* device-mapper cryptsetup gpt fat ntfs parted
 */* aio pgo pie ssp lto experimental custom-cflags
@@ -14,6 +14,8 @@
 */* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -cups -samba
 
 #python
+*/* PYTHON_TARGETS: -* python3_11
+*/* PYTHON_SINGLE_TARGET: -* python3_11
 */* -python_single_target_python2_7/* -python_targets_pypy
 */* PYTHON_TARGETS: -python2_7
 
@@ -25,7 +27,7 @@ sys-devel/llvm clang gold llvm_targets_AMDGPU
 sys-devel/clang llvm_targets_AMDGPU
 dev-libs/boost -python
 dev-libs/rocr-runtime -nonfree
-x11-base/xorg-server -ipv6 -kdrive minimal
+x11-base/xorg-server -ipv6 -kdrive -minimal
 dev-vcs/git -subversion -perl -gtk
 sys-libs/zlib minizip static-libs
 sys-boot/grub mount
@@ -69,7 +71,7 @@ media-libs/gst-plugins-bad -gles2 egl
 media-gfx/inkscape -gnome -spell -latex
 media-gfx/gimp -webkit
 media-libs/libmypaint gegl
-media-video/mpv libmpv vulkan cli -luajit lua
+media-video/mpv libmpv vulkan cli -luajit lua -X -opengl -xv
 media-libs/libvpx postproc
 
 #desktop
@@ -95,7 +97,7 @@ app-text/poppler -qt5
 app-text/ghostscript-gpl -gtk
 media-gfx/graphviz -gtk
 net-dialup/ppp -gtk
-media-libs/libcanberra -gtk -sound -udev
+media-libs/libcanberra -gtk -udev
 dev-util/perf -gtk
 app-accessibility/caribou -gtk2
 
@@ -129,5 +131,3 @@ media-libs/freetype harfbuzz
 media-video/wireplumber lua_single_target_lua5-4
 net-misc/freerdp server
 app-i18n/ibus -python
->=x11-base/xorg-server-21.1.3-r3 -minimal
->=media-libs/libcanberra-0.30-r7 sound
