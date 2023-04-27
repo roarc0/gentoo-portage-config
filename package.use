@@ -7,7 +7,7 @@
 */* dri3 xwayland wayland wayland-compositor glamor
 */* nfs nfsv41 conntrack nftables netlink iproute2 ssh git
 */* meson dbus systemd bluetooth firmware symlink libinput nautilus gvfs gtk3 vim system-* chromium system-llvm rustfm cargo vulkan
-*/* iwd wifi http2 opencl echo-cancel minimal
+*/* iwd wifi http2 opencl echo-cancel minimal sftp
 
 */* -gles1 -gles -classic -cuda -gtk-doc -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -upnp -dvdnav -accessibility -guile -aalib -a52 -v4l -v4l2 -deprecated -bindist -consolekit -r300 -nokia -wicd -static-analyzer -gnome2 -gtk2 -laptop -mono -msn -icq -isdn -macosx -ipod -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -extras -doc -examples -real -32bit -zeroconf -geolocation -accessibility -aim -cdparanoia -cdinstall  -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -ios -ipod -evo -google -spice -printsupport -libnotify -awt -smartcard -http -ldap -perl -sndfile
 */* -jdk -java -midi -alsa -alsa-plugin -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -thin
@@ -31,7 +31,7 @@ x11-base/xorg-server -ipv6 -kdrive -minimal
 dev-vcs/git -subversion -perl -gtk
 sys-libs/zlib minizip static-libs
 sys-boot/grub mount
-sys-apps/fwupd flashrom uefi
+sys-apps/fwupd flashrom uefi -minimal systemd gnutls
 
 #gentoo
 app-portage/eix sqlite
@@ -131,3 +131,4 @@ media-libs/freetype harfbuzz
 media-video/wireplumber lua_single_target_lua5-4
 net-misc/freerdp server
 app-i18n/ibus -python
+media-libs/libcanberra sound
