@@ -3,3 +3,4 @@ x11-base/xorg-server
 gui-wm/sway
 gui-apps/foot
 gui-apps/waybar
+media-gfx/gimp
