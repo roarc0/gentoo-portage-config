@@ -5,12 +5,12 @@ repository_path=${3}
 
 ret=0
 
-source /lib/gentoo/functions.sh
+. /lib/gentoo/functions.sh
 
 if [ -n "${repository_name}" ]; then
     test "${repository_name}" != "gentoo" && exit "${ret}"
     ebegin "Generating cache for ${repository_name} repo : ${sync_uri} => ${repository_path}"
-    if ! egencache --update --repo="${repository_name}" --jobs=4 ; then
+    if ! egencache --update --repo="${repository_name}" --jobs=12; then
         eerror "egencache failed!"
         ret=1
     fi

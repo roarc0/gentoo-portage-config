@@ -1,2 +1,0 @@
-#*/* abi_x86_32
-www-client/chromium gnome

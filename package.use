@@ -1,49 +1,32 @@
 */* ${CPU_FLAGS_X86}
-*/* experimental custom-cflags aio pgo pie ssp lto gold mold threads
-*/* systemd minimal vim flatpak
+*/* custom-cflags aio pgo pie ssp lto gold mold threads
+*/* systemd nls lm-sensors vim flatpak
 */* proprietary-codecs mp4 vpx x264 x265 matroska mp3 flac opus vorbis openh264 pipewire echo-cancel vaapi
 */* webp gif svg png pdf archive rar unrar lz4 xz emoji
 */* device-mapper cryptsetup gpt fat ntfs
 */* xwayland wayland wayland-compositor vulkan
-*/* conntrack nftables netlink iproute2 ssh sftp git
-*/* wifi iwd bluetooth lm-sensors ipv6 nls
+*/* ipv6 conntrack nftables netlink iproute2 ssh sftp git dav webdav
+*/* wifi iwd bluetooth nfs v4l gtk4
 
-*/* -gles1 -gles -classic -opencl -cuda -gtk-doc -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -upnp -dvdnav -accessibility -guile -aalib -a52 -v4l -v4l2 -deprecated -bindist -consolekit -r300 -nokia -wicd -static-analyzer -gnome2 -gtk2 -laptop -mono -msn -icq -isdn -macosx -ipod -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -qt6 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -extras -doc -real -32bit -zeroconf -geolocation -accessibility -aim -cdparanoia -cdinstall  -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -ios -ipod -evo -google -spice -printsupport -libnotify -awt -smartcard -http -ldap -perl -sndfile
-*/* -jdk -java -midi -jack -alsa -alsa-plugin -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -nouveau -thin -latex
-*/* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -samba -jpeg2k -webdav -dts -xv -kerberos
+*/* -extra -gles -classic -opencl -cuda -gtk-doc -gtk2 -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -dvdnav -accessibility -guile -aalib -a52 -deprecated -bindist -r300 -nokia -wicd -static-analyzer -gnome2 -laptop -mono -msn -icq -isdn -macosx -ipod -ios -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -qt6 -qt7 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -doc -real -32bit -geolocation -accessibility -aim -cdparanoia -cdinstall -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -evo -spice -printsupport -libnotify -awt -smartcard -ldap -perl -sndfile
+*/* -jdk -java -midi -jack -alsa -alsa-plugin -pipewire-alsa -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -nouveau -thin -latex
+*/* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -samba -jpeg2k -webdav -dts -xv -kerberos -chamelium -boost
 
 #python
-*/* PYTHON_TARGETS: -* python3_11
-*/* PYTHON_SINGLE_TARGET: -* python3_11
-*/* -python_single_target_python2_7/* -python_targets_pypy
-*/* PYTHON_TARGETS: -python2_7
+*/* PYTHON_TARGETS: -* -python2_7 python3_11
+*/* PYTHON_SINGLE_TARGET: -* -python_single_target_python2_7/* -python_targets_pypy python3_11
 
 sys-apps/systemd sysv-utils cgroup-hybrid
+sys-kernel/installkernel -systemd grub dracut
+sys-boot/grub mount
 sys-libs/glibc -custom-cflags
-sys-devel/llvm clang gold
-sys-devel/clang
+sys-devel/llvm gold
 sys-firmware/intel-microcode initramfs
 x11-base/xorg-server -ipv6 -kdrive -minimal
-
-sys-libs/zlib minizip static-libs
-sys-boot/grub mount
-sys-apps/fwupd flashrom uefi -minimal gnutls
-net-libs/gnutls tools pkcs11
-sys-process/htop lm-sensors
-net-misc/iputils -caps -filecaps
-net-libs/nodejs inspector
-net-libs/libsoup vala
-dev-libs/libpcre2 pcre32
-media-libs/freetype harfbuzz
-media-video/wireplumber lua_single_target_lua5-4
-net-misc/freerdp server
-app-i18n/ibus -gtk3 -python
-sys-fs/cryptsetup -static
-sys-fs/lvm2 lvm thin -static
-
-dev-vcs/git -subversion -perl -gtk
-dev-libs/boost -python
-dev-db/sqlite secure-delete
+dev-lang/rust-bin rust-analyzer rustfmt clippy
+dev-perl/* minimal
+dev-lang/* minimal
+media-libs/mesa -opencl
 
 #gentoo
 app-portage/eix sqlite
@@ -57,26 +40,29 @@ net-wireless/iwd -crda
 net-wireless/bluez -mesh
 net-wireless/aircrack-ng -airdrop-ng
 net-dns/dnsmasq script
+net-libs/gnutls tools pkcs11
+net-misc/freerdp server
+net-misc/iputils -caps -filecaps
+net-libs/nodejs inspector
+#net-libs/libsoup vala
 sys-apps/iproute2 -minimal
 www-servers/nginx -nginx_modules_http_brotli
 
-#virt
+#emu
 app-emulation/qemu spice smartcard usbredir -pin-upstream-blobs sdl
 app-emulation/spice -lz4 smartcard
-net-misc/spice-gtk -gstreamer smartcard usbredir
 app-emulation/libvirt virt-network
+app-emulation/wine-staging staging opengl abi_x86_32 d3d9 mono s3tc
+net-misc/spice-gtk -gstreamer smartcard usbredir
 sys-firmware/ipxe -usb
 dev-util/ostree curl
-app-emulation/wine-staging staging opengl abi_x86_32 d3d9 mono s3tc
 sys-apps/bubblewrap -suid
 
 #media
 www-client/chromium proprietary-codecs widevine -system-ffmpeg -system-icu jumbo-build -suid ozone
 www-client/firefox hwaccel custom-optimization
-media-video/mpv libmpv vulkan cli -luajit lua -X -opengl -xv
-media-video/pipewire sound-server
-media-sound/pulseaudio -daemon equalizer native-headset
-media-sound/pulseaudio-daemon native-headset
+media-video/mpv vulkan -luajit lua cli -opengl -xv -X
+media-video/pipewire sound-server ffmpeg extra
 media-video/ffmpeg -samba
 media-libs/gst-plugins-* -gles2 egl
 media-gfx/inkscape -gnome -spell -latex
@@ -88,7 +74,7 @@ media-libs/libvpx postproc
 gnome-base/gnome -extras -classic
 gnome-base/gnome-shell networkmanager
 gnome-base/nautilus -previewer
-gnome-base/gvfs http samba -mtp -gnome-online-accounts
+gnome-base/gvfs http samba -gnome-online-accounts
 gnome-extra/evolution-data-server -gnome-online-accounts -oauth -google-auth -weather -gtk
 gnome-base/gnome-control-center -gnome-online-accounts
 app-misc/tracker iso mp3 pdf -vorbis miner-fs -upower nautilus xmp networkmanager
@@ -99,7 +85,8 @@ net-libs/webkit-gtk -gles2 egl
 x11-wm/mutter screencast
 
 #tiling
-gui-wm/sway -X swaybar swaybg swaymsg systemd swaygrab swaylock tray
+gui-wm/river -X
+gui-wm/sway swaybar swaybg tray -X
 gui-libs/wlroots -X
 gui-apps/waybar network
 
@@ -119,9 +106,9 @@ app-text/texlive extra -X
 app-text/texlive-core xetex -X
 
 #kill-gtk2
-app-crypt/pinentry -X -gtk -qt5
+app-crypt/pinentry -X -gtk
 app-text/poppler -qt5
-app-text/ghostscript-gpl -gtk
+app-text/ghostscript-gpl -gtk -X
 media-gfx/graphviz -gtk
 net-dialup/ppp -gtk
 media-libs/libcanberra -gtk -gtk3 -gstreamer -udev
@@ -164,17 +151,19 @@ media-libs/libva -X
 media-libs/libva-intel-media-driver -X
 media-video/libva-utils -X
 x11-apps/igt-gpu-tools -X
+media-fonts/* -X
+media-gfx/imagemagick -X
+dev-cpp/cairomm -X
+dev-cpp/gtkmm -X
 
-net-fs/cifs-utils -python
+media-libs/gexiv2 -python -vala
+dev-libs/libpeas -python -vala
 dev-libs/libical -vala
-media-libs/gexiv2 -vala -python
-sys-libs/talloc -python
 sys-libs/libosinfo -vala
 gnome-extra/evolution-data-server -vala
 dev-libs/libgusb -vala
 gnome-base/librsvg -vala
 dev-libs/libgweather -vala
-dev-libs/libpeas -python -vala
 x11-libs/vte -vala
 x11-libs/gtksourceview -vala
 app-text/gspell -vala
@@ -182,3 +171,35 @@ gui-libs/libadwaita -vala
 gui-libs/vte -vala
 dev-libs/libportal -vala
 media-libs/gsound -vala
+
+app-i18n/ibus -python
+dev-libs/boost -python
+net-fs/cifs-utils -python
+sys-libs/talloc -python
+dev-debug/gdb -python
+
+#*/* -vala -X -python
+#x11-libs/gtk+ -X
+#x11-libs/cairo -X
+
+sys-libs/zlib minizip static-libs
+sys-apps/fwupd flashrom uefi -minimal gnutls
+sys-process/htop lm-sensors
+sys-libs/ncurses minimal
+dev-libs/libpcre2 pcre32
+sys-fs/cryptsetup -static
+sys-fs/lvm2 lvm thin -static
+dev-vcs/git -subversion -webdav -perl -gtk
+dev-db/sqlite secure-delete
+media-libs/freetype harfbuzz
+media-video/wireplumber lua_single_target_lua5-4
+net-vpn/networkmanager-strongswan gtk4
+net-vpn/strongswan eap -caps -non-root strongswan_plugins_* dhcp
+media-libs/vulkan-loader X
+dev-db/postgresql -server
+
+>=media-libs/gst-plugins-base-1.22.11 -gles2
+>=media-plugins/gst-plugins-vaapi-1.22.11 -gles2
+>=app-crypt/gcr-3.41.1-r2:0 gtk vala
+>=media-libs/libcanberra-0.30-r7 gtk3
+>=media-libs/libv4l-1.26.1 bpf

@@ -1,3 +1,0 @@
--systemd
-consolekit
--input_devices_libinput

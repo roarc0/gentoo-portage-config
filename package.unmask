@@ -1,6 +1,12 @@
-x11-base/xorg-drivers
-x11-base/xorg-server
 gui-wm/sway
 gui-apps/foot
 gui-apps/waybar
 media-gfx/gimp
+
+
+=dev-libs/rocm-comgr-6.0.0
+=dev-libs/rocm-device-libs-6.0.0
+=dev-libs/rocm-opencl-runtime-6.0.0
+=dev-util/rocminfo-6.0.0
+=dev-libs/rocr-runtime-6.0.0-r1
+=dev-libs/roct-thunk-interface-6.0.0-r1

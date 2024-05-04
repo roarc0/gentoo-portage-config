@@ -1,2 +1,3 @@
-*/*::local **
+app-containers/distrobox **
+#x11-wm/mutter **
 media-gfx/gimp **

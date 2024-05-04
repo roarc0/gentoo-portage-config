@@ -1,0 +1,75 @@
+diff --git a/src/evdev-wheel.c b/src/evdev-wheel.c
+index 13efece6..4dc627d1 100644
+--- a/src/evdev-wheel.c
++++ b/src/evdev-wheel.c
+@@ -187,6 +187,16 @@ wheel_flush_scroll(struct fallback_dispatch *dispatch,
+ 	struct discrete_coords discrete = { 0.0, 0.0 };
+ 	struct wheel_v120 v120 = { 0.0, 0.0 };
+ 
++	if (device->scroll.invert_scrolling_axes) {
++		int tmp = dispatch->wheel.lo_res.x;
++		dispatch->wheel.lo_res.x = dispatch->wheel.lo_res.y;
++		dispatch->wheel.lo_res.y = tmp;
++
++		tmp = dispatch->wheel.hi_res.x;
++		dispatch->wheel.hi_res.x = dispatch->wheel.hi_res.y;
++		dispatch->wheel.hi_res.y = tmp;
++	}
++
+ 	/* This mouse has a trackstick instead of a mouse wheel and sends
+ 	 * trackstick data via REL_WHEEL. Normalize it like normal x/y coordinates.
+ 	 */
+diff --git a/src/evdev.c b/src/evdev.c
+index 2a49f655..16bdbaeb 100644
+--- a/src/evdev.c
++++ b/src/evdev.c
+@@ -2153,6 +2153,10 @@ evdev_configure_device(struct evdev_device *device)
+ 		device->scroll.invert_horizontal_scrolling = true;
+ 	}
+ 
++	if (evdev_device_has_model_quirk(device, QUIRK_MODEL_INVERT_SCROLLING_AXES)) {
++		device->scroll.invert_scrolling_axes = true;
++	}
++
+ 	return fallback_dispatch_create(&device->base);
+ }
+ 
+diff --git a/src/evdev.h b/src/evdev.h
+index f954938c..cb38f67e 100644
+--- a/src/evdev.h
++++ b/src/evdev.h
+@@ -232,6 +232,10 @@ struct evdev_device {
+ 		 * horizontal scrolling */
+ 		bool invert_horizontal_scrolling;
+ 
++		/* set during device init to invert the axes of
++		* scrolling */
++		bool invert_scrolling_axes;
++
+ 		/* angle per REL_WHEEL click in degrees */
+ 		struct wheel_angle wheel_click_angle;
+ 
+diff --git a/src/quirks.c b/src/quirks.c
+index 0fbd53f2..103b7fcb 100644
+--- a/src/quirks.c
++++ b/src/quirks.c
+@@ -256,6 +256,7 @@ quirk_get_name(enum quirk q)
+ 	case QUIRK_MODEL_HP_PAVILION_DM4_TOUCHPAD:	return "ModelHPPavilionDM4Touchpad";
+ 	case QUIRK_MODEL_HP_ZBOOK_STUDIO_G3:		return "ModelHPZBookStudioG3";
+ 	case QUIRK_MODEL_INVERT_HORIZONTAL_SCROLLING:	return "ModelInvertHorizontalScrolling";
++	case QUIRK_MODEL_INVERT_SCROLLING_AXES:		return "ModelInvertScrollingAxes";
+ 	case QUIRK_MODEL_LENOVO_SCROLLPOINT:		return "ModelLenovoScrollPoint";
+ 	case QUIRK_MODEL_LENOVO_T450_TOUCHPAD:		return "ModelLenovoT450Touchpad";
+ 	case QUIRK_MODEL_LENOVO_X1GEN6_TOUCHPAD:	return "ModelLenovoX1Gen6Touchpad";
+diff --git a/src/quirks.h b/src/quirks.h
+index 340d0463..6750f738 100644
+--- a/src/quirks.h
++++ b/src/quirks.h
+@@ -73,6 +73,7 @@ enum quirk {
+ 	QUIRK_MODEL_HP_PAVILION_DM4_TOUCHPAD,
+ 	QUIRK_MODEL_HP_ZBOOK_STUDIO_G3,
+ 	QUIRK_MODEL_INVERT_HORIZONTAL_SCROLLING,
++	QUIRK_MODEL_INVERT_SCROLLING_AXES,
+ 	QUIRK_MODEL_LENOVO_SCROLLPOINT,
+ 	QUIRK_MODEL_LENOVO_T450_TOUCHPAD,
+ 	QUIRK_MODEL_LENOVO_X1GEN6_TOUCHPAD,
