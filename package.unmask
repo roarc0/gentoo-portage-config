@@ -1,8 +1,6 @@
 gui-wm/sway
-gui-apps/foot
 gui-apps/waybar
 media-gfx/gimp
-
 
 =dev-libs/rocm-comgr-6.0.0
 =dev-libs/rocm-device-libs-6.0.0

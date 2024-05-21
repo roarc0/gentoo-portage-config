@@ -6,15 +6,15 @@
 */* device-mapper cryptsetup gpt fat ntfs
 */* xwayland wayland wayland-compositor vulkan
 */* ipv6 conntrack nftables netlink iproute2 ssh sftp git dav webdav
-*/* wifi iwd bluetooth nfs v4l gtk4
+*/* wifi iwd bluetooth nfs v4l gtk4 gnome-keyring
 
 */* -extra -gles -classic -opencl -cuda -gtk-doc -gtk2 -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -dvdnav -accessibility -guile -aalib -a52 -deprecated -bindist -r300 -nokia -wicd -static-analyzer -gnome2 -laptop -mono -msn -icq -isdn -macosx -ipod -ios -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -qt6 -qt7 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -doc -real -32bit -geolocation -accessibility -aim -cdparanoia -cdinstall -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -evo -spice -printsupport -libnotify -awt -smartcard -ldap -perl -sndfile
 */* -jdk -java -midi -jack -alsa -alsa-plugin -pipewire-alsa -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -nouveau -thin -latex
 */* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -samba -jpeg2k -webdav -dts -xv -kerberos -chamelium -boost
 
 #python
-*/* PYTHON_TARGETS: -* -python2_7 python3_11
-*/* PYTHON_SINGLE_TARGET: -* -python_single_target_python2_7/* -python_targets_pypy python3_11
+*/* PYTHON_TARGETS: -* -python2_7
+*/* PYTHON_SINGLE_TARGET: -* -python_single_target_python2_7/* -python_targets_pypy
 
 sys-apps/systemd sysv-utils cgroup-hybrid
 sys-kernel/installkernel -systemd grub dracut
@@ -32,7 +32,8 @@ media-libs/mesa -opencl
 app-portage/eix sqlite
 
 #network
-net-misc/networkmanager -ncurses -tools
+net-misc/networkmanager -ncurses tools
+net-vpn/networkmanager-strongswan gtk4
 net-fs/samba client winbind system-mitkrb5
 net-analyzer/wireshark threads gtk3
 net-p2p/transmission -gtk
@@ -86,9 +87,10 @@ x11-wm/mutter screencast
 
 #tiling
 gui-wm/river -X
-gui-wm/sway swaybar swaybg tray -X
-gui-libs/wlroots -X
-gui-apps/waybar network
+gui-wm/sway swaybar swaybg tray
+gui-libs/wlroots
+gui-apps/waybar network experimental
+gui-apps/yambar -X -dwl sway-xkb
 
 #neovim
 app-editors/neovim remote lua_single_target_luajit
@@ -153,8 +155,8 @@ media-video/libva-utils -X
 x11-apps/igt-gpu-tools -X
 media-fonts/* -X
 media-gfx/imagemagick -X
-dev-cpp/cairomm -X
-dev-cpp/gtkmm -X
+#dev-cpp/cairomm -X
+#dev-cpp/gtkmm -X
 
 media-libs/gexiv2 -python -vala
 dev-libs/libpeas -python -vala
@@ -193,7 +195,6 @@ dev-vcs/git -subversion -webdav -perl -gtk
 dev-db/sqlite secure-delete
 media-libs/freetype harfbuzz
 media-video/wireplumber lua_single_target_lua5-4
-net-vpn/networkmanager-strongswan gtk4
 net-vpn/strongswan eap -caps -non-root strongswan_plugins_* dhcp
 media-libs/vulkan-loader X
 dev-db/postgresql -server
@@ -203,3 +204,4 @@ dev-db/postgresql -server
 >=app-crypt/gcr-3.41.1-r2:0 gtk vala
 >=media-libs/libcanberra-0.30-r7 gtk3
 >=media-libs/libv4l-1.26.1 bpf
+>=x11-libs/pango-1.52.2 X
