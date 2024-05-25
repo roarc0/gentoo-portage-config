@@ -5,12 +5,13 @@
 */* webp gif svg png pdf archive rar unrar lz4 xz emoji
 */* device-mapper cryptsetup gpt fat ntfs
 */* xwayland wayland wayland-compositor vulkan
-*/* ipv6 conntrack nftables netlink iproute2 ssh sftp git dav webdav
-*/* wifi iwd bluetooth nfs v4l gtk4 gnome-keyring
+*/* ipv6 conntrack nftables netlink iproute2 ssh sftp git
+*/* wifi iwd bluetooth nfs v4l gtk4 gnome-keyring lm-sensors nls
 
-*/* -extra -gles -classic -opencl -cuda -gtk-doc -gtk2 -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -dvdnav -accessibility -guile -aalib -a52 -deprecated -bindist -r300 -nokia -wicd -static-analyzer -gnome2 -laptop -mono -msn -icq -isdn -macosx -ipod -ios -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -qt6 -qt7 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -doc -real -32bit -geolocation -accessibility -aim -cdparanoia -cdinstall -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -evo -spice -printsupport -libnotify -awt -smartcard -ldap -perl -sndfile
+*/* -extra -gles -classic -opencl -cuda -cilk -fam -cdio -css -recode -snappy -cdda -cddb -dvdr -dvd -dvdnav -accessibility -guile -aalib -a52 -deprecated -bindist -r300 -nokia -wicd -static-analyzer -gnome2 -laptop -mono -msn -icq -isdn -macosx -ipod -ios -cdr -xinerama -xscreensaver -kde -gconf -qt -qt3 -qt3support -qt4 -qt5 -qt6 -qt7 -hplip -foomatic -foomaticdb -ruby -tk -tcl -bidi -quvi -lua -system-lua -pch -test -gsm -espeak -doc -real -32bit -geolocation -accessibility -aim -cdparanoia -cdinstall -sendmail -mtp -orc -dga -foomatic -gpm -avahi -pcmcia -slang -telepathy -wxwidgets -eds -emacs -crashreporter -debug -oss -scanner -quicktime -ibm -evo -spice -printsupport -libnotify -awt -smartcard -ldap -perl -sndfile
 */* -jdk -java -midi -jack -alsa -alsa-plugin -pipewire-alsa -sdl -examples -rsync-verify -libproxy -ppp -fortran -numa -nvenc -nouveau -thin -latex
 */* -valadoc -graphviz -brotli -webkit -gnome-online-accounts -samba -jpeg2k -webdav -dts -xv -kerberos -chamelium -boost
+*/* -tcl -tk -gtk-doc -gtk2
 
 #python
 */* PYTHON_TARGETS: -* -python2_7
@@ -75,7 +76,7 @@ media-libs/libvpx postproc
 gnome-base/gnome -extras -classic
 gnome-base/gnome-shell networkmanager
 gnome-base/nautilus -previewer
-gnome-base/gvfs http samba -gnome-online-accounts
+gnome-base/gvfs http samba -gnome-online-accounts -mtp
 gnome-extra/evolution-data-server -gnome-online-accounts -oauth -google-auth -weather -gtk
 gnome-base/gnome-control-center -gnome-online-accounts
 app-misc/tracker iso mp3 pdf -vorbis miner-fs -upower nautilus xmp networkmanager

@@ -7,11 +7,14 @@ repository_path="${3}"
 
 . /lib/gentoo/functions.sh
 
-DTDDIR="${repository_path}"/metadata/news
-ebegin "Updating News"
-if [[ -e ${DTDDIR} ]]; then
-    git -C "${DTDDIR}" pull -q --ff-only
+NEWSDIR="${repository_path}"/metadata/news
+
+ebegin "Updating news items"
+
+if [[ -e ${NEWSDIR} ]]; then
+    git -C "${NEWSDIR}" pull -q --ff-only
 else
-    git clone -q https://anongit.gentoo.org/git/data/gentoo-news.git "${DTDDIR}"
+    git clone -q https://anongit.gentoo.org/git/data/gentoo-news.git "${NEWSDIR}"
 fi
-eend "$?"
+
+eend $? "Try to remove ${NEWSDIR}"
