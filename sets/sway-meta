@@ -1,0 +1,6 @@
+gui-wm/sway
+gui-apps/swaylock
+gui-apps/swayidle
+gui-apps/swaybg
+gui-apps/yambar
+xdg-desktop-portal-wlr

@@ -2,6 +2,7 @@
 repository_name=${1}
 sync_uri=${2}
 repository_path=${3}
+num_cores=$(nproc)
 
 ret=0
 
@@ -10,7 +11,7 @@ ret=0
 if [ -n "${repository_name}" ]; then
     test "${repository_name}" != "gentoo" && exit "${ret}"
     ebegin "Generating cache for ${repository_name} repo : ${sync_uri} => ${repository_path}"
-    if ! egencache --update --repo="${repository_name}" --jobs=12; then
+    if ! egencache --update --repo="${repository_name}" --jobs=${num_cores} ; then
         eerror "egencache failed!"
         ret=1
     fi
