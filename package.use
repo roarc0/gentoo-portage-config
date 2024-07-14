@@ -5,7 +5,7 @@
 */* webp gif svg png pdf archive rar unrar lz4 xz emoji
 */* device-mapper cryptsetup gpt fat ntfs
 */* xwayland wayland wayland-compositor vulkan
-*/* ipv6 conntrack nftables netlink iproute2 ssh sftp git
+*/* ipv6 conntrack nftables netlink iproute2 ssh sftp git zeroconf
 */* wifi iwd bluetooth nfs v4l gtk4 gnome-keyring lm-sensors nls
 
 */* -extra -test -examples -doc -debug -accessibility -deprecated -classic
@@ -25,7 +25,7 @@
 */* PYTHON_TARGETS: -* -python2_7
 */* PYTHON_SINGLE_TARGET: -* -python_single_target_python2_7/* -python_targets_pypy
 
-sys-apps/systemd sysv-utils cgroup-hybrid
+sys-apps/systemd sysv-utils
 sys-kernel/installkernel -systemd grub dracut
 sys-boot/grub mount
 sys-libs/glibc -custom-cflags

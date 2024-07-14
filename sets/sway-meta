@@ -3,4 +3,4 @@ gui-apps/swaylock
 gui-apps/swayidle
 gui-apps/swaybg
 gui-apps/yambar
-xdg-desktop-portal-wlr
+gui-libs/xdg-desktop-portal-wlr
