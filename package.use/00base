@@ -215,3 +215,5 @@ dev-db/postgresql -server
 >=media-libs/libcanberra-0.30-r7 gtk3
 >=media-libs/libv4l-1.26.1 bpf
 >=x11-libs/pango-1.52.2 X
+
+gui-libs/libadwaita vala

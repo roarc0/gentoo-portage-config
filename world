@@ -12,6 +12,7 @@ app-misc/jq
 app-misc/resolve-march-native
 app-misc/tmux
 app-portage/eix
+app-portage/genlop
 app-portage/gentoolkit
 app-portage/portage-utils
 app-shells/zsh-completions
@@ -25,6 +26,7 @@ dev-java/openjdk-jre-bin:17
 dev-lang/rust-bin
 dev-libs/bemenu
 dev-libs/libinput
+dev-python/pipx
 dev-util/meld
 dev-util/rustup
 dev-util/sccache
@@ -47,6 +49,7 @@ gui-apps/swaylock
 gui-apps/wf-recorder
 gui-apps/wl-clipboard
 gui-apps/yambar
+gui-libs/wlroots:0
 gui-libs/xdg-desktop-portal-wlr
 gui-wm/sway
 media-fonts/fonts-meta
@@ -64,6 +67,7 @@ net-analyzer/nload
 net-dns/bind-tools
 net-firewall/ufw
 net-fs/nfs-utils
+net-im/slack
 net-libs/nodejs
 net-misc/kafkacat
 net-p2p/syncthing
@@ -72,10 +76,12 @@ net-print/cups-filters
 net-vpn/networkmanager-strongswan
 net-vpn/tailscale
 net-vpn/wireguard-tools
+net-wireless/blueman
 sys-apps/dmidecode
 sys-apps/flatpak
 sys-apps/gnome-disk-utility
 sys-apps/lm-sensors
+sys-apps/mlocate
 sys-apps/usbutils
 sys-block/io-scheduler-udev-rules
 sys-boot/grub
