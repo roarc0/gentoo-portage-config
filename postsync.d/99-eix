@@ -4,13 +4,11 @@ PREVIOUS="/var/cache/eix/previous.eix"
 
 source /lib/gentoo/functions.sh
 
-if [[ -e $CURRENT ]]; then
-    ebegin "eix-backup"
-    cp -a $CURRENT $PREVIOUS
-fi
+#if [[ -e $CURRENT ]]; then
+#    cp -a $CURRENT $PREVIOUS
+#fi
 
-ebegin "eix-update"
-eix-update
+#eix-update
 
 if [[ -e $PREVIOUS ]]; then
     ebegin "eix-diff"

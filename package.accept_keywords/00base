@@ -2,3 +2,4 @@ app-containers/distrobox **
 media-gfx/gimp **
 #app-editors/neovim **
 #x11-wm/mutter **
+x11-base/wayback **

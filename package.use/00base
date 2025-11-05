@@ -1,12 +1,14 @@
 */* ${CPU_FLAGS_X86}
+*/* VIDEO_CARDS: -* amdgpu
 */* custom-cflags pgo lto mold threads
-*/* device-mapper cryptsetup gpt lvm thin nvme fat ntfs
+*/* device-mapper cryptsetup gpt lvm thin nvme fat ntfs ntfs-3g
 */* ssh zeroconf libproxy nftables
 */* iwd bluetooth nfs v4l
 */* pipewire echo-cancel vaapi
 */* webp archive lz4 lzma
 */* mp4 vpx x265 opus
 */* amdgpu lm-sensors flatpak
+
 
 */* -extra -test -examples -doc -debug -emacs -deprecated
 */* -tcl -tk -gtk-doc -gtk2 -gconf -gnome2 -wxwidgets 
@@ -23,12 +25,16 @@
 */* -webkit -gnome-online-accounts -jemalloc
 */* -subversion
 
+*/* PYTHON_TARGETS: -* python3_13 python3_14 -python2_7
+*/* PYTHON_SINGLE_TARGET: -* python3_13 -python_single_target_python2_7/* -python_targets_pypy
+dev-lang/python tail-call-interp
+
 sys-apps/systemd sysv-utils
 sys-kernel/installkernel -systemd grub dracut
 sys-boot/grub mount
 sys-libs/glibc -custom-cflags
 sys-firmware/intel-microcode initramfs
-sys-apps/fwupd flashrom uefi -minimal gnutls
+sys-apps/fwupd flashrom uefi -minimal gnutls logitech spi tpmZSZZ
 x11-base/xorg-server -ipv6 -kdrive -minimal
 dev-lang/rust-bin rust-analyzer rustfmt clippy
 dev-perl/* minimal
@@ -39,6 +45,7 @@ app-misc/ca-certificates cacert
 #gentoo
 sys-apps/portage -rsync-verify
 app-portage/eix sqlite
+app-admin/sudo-rs system-names
 
 #network
 net-misc/networkmanager -ncurses tools
@@ -75,15 +82,18 @@ www-client/chromium proprietary-codecs widevine -system-ffmpeg -system-icu -suid
 gnome-base/gnome -extras -classic
 gnome-base/gnome-shell networkmanager
 gnome-base/nautilus -previewer
-gnome-base/gvfs http samba -gnome-online-accounts
+gnome-base/gvfs http samba fuse -gnome-online-accounts
 gnome-extra/evolution-data-server -gnome-online-accounts -oauth -google-auth -weather -gtk
 gnome-base/gnome-control-center -gnome-online-accounts
-app-misc/tracker iso mp3 pdf -vorbis miner-fs -upower nautilus xmp networkmanager
-app-misc/tracker-miners -cue iso mp3 pdf -vorbis miner-fs -upower nautilus -xmp networkmanager
+# move app-misc/tracker app-misc/tinysparql
+app-misc/tinysparql iso mp3 pdf -vorbis miner-fs -upower nautilus xmp networkmanager
+# move app-misc/tracker-miners app-misc/localsearch
+app-misc/localsearch -cue iso mp3 pdf -vorbis miner-fs -upower nautilus -xmp networkmanager
 dev-util/meld -gnome
 dev-util/gnome-builder -devhelp
 net-libs/webkit-gtk -gles2 egl
-x11-wm/mutter screencast
+x11-wm/mutter screencast -sysprof
+gnome-base/gnome-keyring ssh-agent
 
 #tiling
 gui-wm/river -X
@@ -120,10 +130,6 @@ app-arch/gnome-autoar -gtk
 app-crypt/gcr -vala -gtk
 media-libs/gst-plugins-bad -gtk
 sys-auth/polkit -gtk
-
-#kill-python-2.7
-*/* PYTHON_TARGETS: -* -python2_7
-*/* PYTHON_SINGLE_TARGET: -* -python_single_target_python2_7/* -python_targets_pypy
 
 #kill-x
 net-misc/openssh -X
@@ -176,6 +182,10 @@ x11-libs/gtksourceview -vala
 gui-libs/vte -vala
 dev-libs/libportal -vala
 media-libs/gsound -vala
+net-libs/libsoup -vala 
+app-crypt/gcr -vala
+app-text/gspell -vala
+gui-libs/libpanel -vala
 
 app-i18n/ibus -python
 dev-libs/boost -python
@@ -198,13 +208,22 @@ dev-db/sqlite secure-delete
 media-libs/freetype harfbuzz
 net-vpn/strongswan eap -caps -non-root strongswan_plugins_* dhcp
 
+media-libs/libv4l bpf tracer
+dev-libs/gjs -sysprof
+
 media-video/wireplumber lua_single_target_lua5-4
 >=media-libs/gst-plugins-base-1.22.11 -gles2
 >=media-plugins/gst-plugins-vaapi-1.22.11 -gles2
->=app-crypt/gcr-3.41.1-r2:0 gtk vala
+#>=app-crypt/gcr-3.41.1-r2:0 gtk vala
 >=media-libs/libcanberra-0.30-r7 gtk3
->=media-libs/libv4l-1.26.1 bpf
 >=media-libs/gd-2.3.3-r4 fontconfig
-# required by net-misc/gnome-remote-desktop-46.3::gentoo[rdp]
-# required by gnome-remote-desktop (argument)
->=net-misc/freerdp-3.9.0 server
+# required by gnome-base/gnome-keyring-48.0::gentoo
+# required by virtual/secret-service-0-r1::gentoo
+# required by app-crypt/libsecret-0.21.7::gentoo
+# required by dev-vcs/git-2.51.2-r1::gentoo[keyring]
+# required by @selected
+# required by @world (argument)
+>=app-crypt/gcr-3.41.2-r2:0 gtk
+# required by gnome-extra/gnome-calculator-48.1::gentoo
+# required by gnome-calculator (argument)
+>=net-libs/libsoup-3.6.5 vala
